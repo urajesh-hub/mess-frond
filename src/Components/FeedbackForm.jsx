@@ -98,7 +98,7 @@ const FeedbackForm = () => {
             </div>
             <div className="row " >
                 {items.map(item => (
-                    <div key={item._id} className="col-3 mb-3 ">
+                    <div key={item._id} className="col-4 mb-3 ">
                         <div className="card p-3 "  >
                             <div className="form-check" >
                                 <input 
