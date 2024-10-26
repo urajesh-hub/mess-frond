@@ -16,7 +16,7 @@ function ItemManager() {
 
     const fetchItems = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/items');
+            const response = await axios.get('https://mess-backend-30l4.onrender.com/items');
             setItems(response.data);
         } catch (error) {
             console.error("Error fetching items:", error);
@@ -25,7 +25,7 @@ function ItemManager() {
 
     const fetchCategories = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/categories');
+            const response = await axios.get('https://mess-backend-30l4.onrender.com/categories');
             setCategories(response.data);
         } catch (error) {
             console.error("Error fetching categories:", error);
@@ -35,7 +35,7 @@ function ItemManager() {
     const handleAddItem = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/items', { name, categoryId });
+            const response = await axios.post('https://mess-backend-30l4.onrender.com/items', { name, categoryId });
             setItems([...items, response.data]);
             resetForm();
         } catch (error) {
@@ -46,7 +46,7 @@ function ItemManager() {
     const handleEditItem = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/items/${editingItem._id}`, { name, categoryId });
+            const response = await axios.put(`https://mess-backend-30l4.onrender.com/items/${editingItem._id}`, { name, categoryId });
             setItems(items.map(item => item._id === editingItem._id ? response.data : item));
             resetForm();
         } catch (error) {
@@ -59,7 +59,7 @@ function ItemManager() {
         if (!confirmDelete) return; // If the user cancels, do not proceed
 
         try {
-            await axios.delete(`http://localhost:5000/items/${id}`);
+            await axios.delete(`https://mess-backend-30l4.onrender.com/items/${id}`);
             setItems(items.filter(item => item._id !== id));
         } catch (error) {
             console.error("Error deleting item:", error);

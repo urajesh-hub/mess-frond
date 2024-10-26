@@ -4,7 +4,7 @@ import axios from 'axios';
 const ReportDownload = () => {
     const handleDownload = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/download/report', {
+            const response = await axios.get('https://mess-backend-30l4.onrender.com/download/report', {
                 responseType: 'blob', // Important for binary data
             });
 

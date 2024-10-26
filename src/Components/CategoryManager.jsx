@@ -15,7 +15,7 @@ function CategoryManager() {
     // Fetch all categories
     const fetchCategories = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/categories');
+            const response = await axios.get('https://mess-backend-30l4.onrender.com/categories');
             setCategories(response.data);
         } catch (error) {
             console.error("Error fetching categories:", error);
@@ -26,7 +26,7 @@ function CategoryManager() {
     const handleAddCategory = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/categories', { name });
+            const response = await axios.post('https://mess-backend-30l4.onrender.com/categories', { name });
             setCategories([...categories, response.data]);
             setName('');
         } catch (error) {
@@ -44,7 +44,7 @@ function CategoryManager() {
     const handleUpdateCategory = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/categories/${editCategoryId}`, { name: editName });
+            const response = await axios.put(`https://mess-backend-30l4.onrender.com/categories/${editCategoryId}`, { name: editName });
             setCategories(categories.map((cat) => (cat._id === editCategoryId ? response.data : cat)));
             setEditCategoryId(null);
             setEditName('');
@@ -56,7 +56,7 @@ function CategoryManager() {
     // Delete a category
     const handleDeleteCategory = async (categoryId) => {
         try {
-            await axios.delete(`http://localhost:5000/categories/${categoryId}`);
+            await axios.delete(`https://mess-backend-30l4.onrender.com/categories/${categoryId}`);
             setCategories(categories.filter((category) => category._id !== categoryId));
         } catch (error) {
             console.error("Error deleting category:", error);

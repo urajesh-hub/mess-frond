@@ -10,14 +10,14 @@ const FeedbackForm = () => {
 
     useEffect(() => {
         const fetchCategories = async () => {
-            const response = await axios.get('http://localhost:5000/categories');
+            const response = await axios.get('https://mess-backend-30l4.onrender.com/categories');
             setCategories(response.data);
         };
         fetchCategories();
     }, []);
 
     const handleCategoryClick = async (categoryId) => {
-        const response = await axios.get(`http://localhost:5000/items/${categoryId}`);
+        const response = await axios.get(`https://mess-backend-30l4.onrender.com/items/${categoryId}`);
         setItems(response.data);
         setSelectedItems([]); // Clear selected items when changing category
         setFeedbacks({}); // Reset feedbacks when changing category
@@ -67,7 +67,7 @@ const FeedbackForm = () => {
         try {
             // Save feedback for each selected item
             for (const itemId of selectedItems) {
-                await axios.post('http://localhost:5000/feedback', {
+                await axios.post('https://mess-backend-30l4.onrender.com/feedback', {
                     itemId,
                     rating: feedbacks[itemId].rating,
                     feedback: feedbacks[itemId].feedback,

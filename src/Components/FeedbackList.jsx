@@ -11,7 +11,7 @@ const FeedbackList = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/categories');
+                const response = await axios.get('https://mess-backend-30l4.onrender.com/categories');
                 setCategories(response.data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
@@ -21,8 +21,8 @@ const FeedbackList = () => {
         const fetchFeedback = async (categoryId) => {
             setLoading(true);
             const url = categoryId 
-                ? `http://localhost:5000/feedback/${categoryId}` 
-                : 'http://localhost:5000/feedback';
+                ? `https://mess-backend-30l4.onrender.com/feedback/${categoryId}` 
+                : 'https://mess-backend-30l4.onrender.com/feedback';
             
             try {
                 const response = await axios.get(url);
@@ -41,8 +41,8 @@ const FeedbackList = () => {
     const fetchFeedback = async (categoryId) => {
         setLoading(true);
         const url = categoryId 
-            ? `http://localhost:5000/feedback/${categoryId}` 
-            : 'http://localhost:5000/feedback';
+            ? `https://mess-backend-30l4.onrender.com/feedback/${categoryId}` 
+            : 'https://mess-backend-30l4.onrender.com/feedback';
         
         try {
             const response = await axios.get(url);
